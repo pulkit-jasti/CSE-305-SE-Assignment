@@ -9,7 +9,7 @@ import Welcome from './Customer_container/Welcome'
 
 const Customer = () => {
   return (
-    <div>
+    <div >
       
       <Header />
       
@@ -17,11 +17,15 @@ const Customer = () => {
      
       <Card />
 
+      <Search/>
+
+      <Rating />  
+
       <Feedback />
     
-      <Rating />       
+           
 
-      <Search/>
+      
     </div>
   )
 }

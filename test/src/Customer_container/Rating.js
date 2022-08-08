@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Radium from 'radium';
-
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useState } from "react";
+import Axios from "axios";
 const Rating = () => {
     
+  let navigate = useNavigate();
+  const [ratingList, setRatingsList] = useState([]);
+  var out = "";
+  function Score() {
+    console.log(1);
+    useEffect(() => {
+        Axios.get("http://localhost:3001/ratings").then((response) => {
+            console.log("Got");
+            console.log(response.data);
+            setRatingsList(response.data);
+            
+        });
+        
+    }, []);
+
+}
+
+Score();
+console.log(ratingList)
 
     
   return (
     
     <div >     
-    <div style={{marginBottom: '50px'}}>
+    <div style={{marginBottom: '50px'}} >
     
     
 
@@ -18,7 +40,7 @@ const Rating = () => {
     <h1 style={{color: "Green",fontSize: "50px"}}>Rating Section</h1>
     <hr></hr> 
             
-            <div className="container mt-6">
+            <div className="container mt-6" >
             <div className="card" style={{borderColor: "Green"}}>
                 <div className="row no-gutters">
                     
@@ -293,10 +315,15 @@ const Rating = () => {
     */}
 
     </center>
-    <div class="row row-cols-1 row-cols-md-3">
-      <div class="col">
 
-            <div className="card" style={{width: '33rem',marginLeft:"202px",marginTop:"50px",borderColor: "Green"}} >
+
+    <div class="row row-cols-1 row-cols-md-2">
+
+      {ratingList.map((val, key) => {
+        return(
+        <div class="col">
+
+            <div className="card" style={{width: '33rem',marginLeft:"110px",marginTop:"50px",borderColor: "Green"}} >
               
             <div className="card mb-6">
             <div className="row g-0">
@@ -305,10 +332,13 @@ const Rating = () => {
               </div>
               <div className="col-md-8">
                 <div className="card-body" style={{textAlign:"left"}} >
-                  <h4 className="fw-bold card-title" >Itachi Uchiha</h4>
-
-                  <span className="badge bg-success" style={{"fontSize": '20px'}}>4.1 </span>
-                  <h5 style={{marginTop:'20px',fontWeight:"bold"}}> Very Good</h5>
+                  <h4 className="fw-bold card-title" >{val.Customer_name}</h4>
+                
+                  <span className="badge bg-success" style={{"fontSize": '20px'}}>{val.Rating}.0 </span>
+                  <script>
+                  
+                  </script>
+                 {val && (<h5 style={{marginTop:'20px',fontWeight:"bold"}}>{val.Rating === 5? "Excellent" : val.Rating === 4? "Very Good": "Average" }</h5>)}
 
                   <p style={{marginTop:'20px'}}  className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                     </div>
@@ -318,46 +348,16 @@ const Rating = () => {
                 
                   <div className="card-body">
               
-                      <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p className="card-text">{val.Review}</p>
                   
                   </div>
               </div>
         </div>
-        <div class="col">
-
-              <div className="card" style={{width: '33rem',marginLeft:"10px",marginTop:"50px",borderColor: "Green"}}>
+        );
+        })};
+        
               
-              <div className="card mb-6">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img style={{borderRadius: '100%'}}src="https://www.seekpng.com/png/detail/421-4219874_icone-homem-png-man-icon-png.png" className="img-fluid " alt="..."/>
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body" style={{textAlign:"left"}} >
-                  <h4 className="fw-bold card-title" >Itachi Uchiha</h4>
-  
-                    <span className="badge bg-success" style={{"fontSize": '20px'}}>4.1 </span>
-
-                    <h5 style={{marginTop:'20px',fontWeight:"bold"}}> Very Good</h5>
-
-  
-                    <p style={{marginTop:'20px'}}className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                  
-                    <div className="card-body">
-                
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    
-                    </div>
-                </div>
-
-
-
-
-          </div>
+          
         </div>
 
 

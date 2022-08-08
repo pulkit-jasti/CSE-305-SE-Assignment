@@ -121,7 +121,7 @@ const Dimp = () => {
           return (
             <div className="employee">
               <div>
-                <h3>Name: {val.name}</h3>
+                <h3>Name: {val.first_name}</h3>
                 <h3>Age: {val.age}</h3>
                 <h3>Country: {val.country}</h3>
                 <h3>Position: {val.position}</h3>

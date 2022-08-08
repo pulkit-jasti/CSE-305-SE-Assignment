@@ -11,10 +11,10 @@ const Orders = () => {
     <center> 
         <hr></hr>
         
-        <h1> This is orders section </h1>
+        <h1> Menu Section </h1>
         
     </center>
-    <Filter />
+    
     <Card />
     </div>
   )

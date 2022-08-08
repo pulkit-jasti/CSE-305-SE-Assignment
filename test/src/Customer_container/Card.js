@@ -49,21 +49,42 @@ const Card = () =>
                     
             <div className="row row-cols-1 row-cols-md-4 g-3">
 
-                {links.map((num,index) => ( 
-
                 <div className="col-md-4">
                     <div className="card h-100">
-                    <img style={{width: '500px', height: '300px'}} src={num} class="img-fluid img-thumbnail" alt="..."></img>
+                    <img style={{width: '500px', height: '300px'}} src='https://img1.10bestmedia.com/Images/Photos/378649/Park-Hyatt-New-York-Manhattan-Sky-Suite-Master-Bedroom-low-res_54_990x660.jpg' class="img-fluid img-thumbnail" alt="..."></img>
                     <div className="card-body">
                         <br/>
-                        <h2 className="card-title">Room Booking Services</h2>
+                        <h2 className="card-title">Room Booking </h2>
                         <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <button  className="btn btn-primary">Click for more Info</button>
+                        
                     </div> 
                     </div>
                 </div>
 
-                ))}
+                <div className="col-md-4">
+                    <div className="card h-100">
+                    <img style={{width: '500px', height: '300px'}} src='https://dq5r178u4t83b.cloudfront.net/wp-content/uploads/sites/115/2020/08/20094748/spa-4.jpg' class="img-fluid img-thumbnail" alt="..."></img>
+                    <div className="card-body">
+                        <br/>
+                        <h2 className="card-title">Room Services </h2>
+                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        
+                    </div> 
+                    </div>
+                </div>
+
+                <div className="col-md-4">
+                    <div className="card h-100">
+                    <img style={{width: '500px', height: '300px'}} src='https://imgmedia.lbb.in/media/2018/11/5c016875d7a5832ac34d51be_1543596149373.jpg' class="img-fluid img-thumbnail" alt="..."></img>
+                    <div className="card-body">
+                        <br/>
+                        <h2 className="card-title">Food Menu </h2>
+                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        
+                    </div> 
+                    </div>
+                </div>
+                
                 
             </div>
 
